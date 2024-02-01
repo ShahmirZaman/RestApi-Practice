@@ -8,7 +8,8 @@ dotenv.config();
 const start = async() => {
     try{
         await connectDB(process.env.MONGODB_URI);
-        await product.create(ProductJson);
+        await product.deleteMany();
+        await product.create(ProductJson);        
         console.log("Success!!")
     }catch(error) {
         console.log(error)
